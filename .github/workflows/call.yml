@@ -1,9 +1,14 @@
 name: "Terraform"
 on:
   workflow_call:
+    inputs:
+      abc:
+        required: true
+        type: string
 
 jobs:
   build:
+    environment: ${{ inputs.abc }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
